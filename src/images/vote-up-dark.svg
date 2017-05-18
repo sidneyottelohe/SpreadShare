@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="200px" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>vote-up-dark</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="vote-up-dark" fill-rule="nonzero" fill="#6B7C93">
+            <polygon id="Shape" transform="translate(200.000000, 100.000000) rotate(-180.000000) translate(-200.000000, -100.000000) " points="0 0 200 200 400 0"></polygon>
+        </g>
+    </g>
+</svg>

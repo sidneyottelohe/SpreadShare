@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="400px" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>clock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="clock" fill-rule="nonzero" fill="#6B7C93">
+            <path d="M200,0 C90,0 0,90 0,200 C0,310 90,400 200,400 C310,400 400,310 400,200 C400,90 310,0 200,0 Z M200,50 C283,50 350,117 350,200 C350,283 283,350 200,350 C117,350 50,283 50,200 C50,117 117,50 200,50 Z M175,100 L175,211 L183,217.5 L208,242.5 L225,261.5 L261,225.5 L242,208.5 L225,191.5 L225,101 L175,101 L175,100 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
