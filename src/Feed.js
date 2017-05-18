@@ -16,7 +16,7 @@ class Feed extends Component {
               }
             </div>
             <div className="w-dyn-empty">
-              <div>No items found.</div>
+              <div>No spreadsheets found.</div>
             </div>
           </div>
         </div>
