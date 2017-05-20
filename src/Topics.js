@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import FeedItem from './FeedItem';
-import Feed from './Feed';
-
 class Topics extends Component {
   render() {
     return (
@@ -48,11 +45,6 @@ class Topics extends Component {
                   <div>No items found.</div>
                 </div>
               </div>
-            </div>
-          </section>
-          <section className="section-newsletter">
-            <div className="container">
-              <div className="common-title">Subscribe to our email digest to discover fresh spreadsheets.</div><a className="btn-subscribe btn-subscribe--large" href="subscribe.html">Subscribe</a>
             </div>
           </section>
         </main>

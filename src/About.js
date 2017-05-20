@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import FeedItem from './FeedItem';
-import Feed from './Feed';
-
 class About extends Component {
   render() {
     return (
@@ -72,11 +69,6 @@ class About extends Component {
             </div>
           </div>
         </main>
-        <section className="section-newsletter">
-          <div className="container">
-            <div className="common-title">Subscribe to our email digest to discover fresh spreadsheets.</div><a className="btn-subscribe btn-subscribe--large" href="subscribe.html">Subscribe</a>
-          </div>
-        </section>
       </div>
     );
   }

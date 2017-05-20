@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
-import FeedItem from './FeedItem';
-import Feed from './Feed';
-
+@observer
 class Spreadsheet extends Component {
   render() {
+    this.props.store.currentPath = this.props.match.params
+    const { currentSheet } = this.props.store
     return (
       <div>
         <header>
           <div className="section-hero">
             <div className="hero">
               <div className="container">
-                <h1 className="hero__heading">VC Finder (New York)</h1>
-                <div className="hero__sub-heading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mauris arcu, pellentesque eu rhoncus ut.</div><a className="btn btn--open-spreadsheet">Go to Spreadsheet</a>
+                <h1 className="hero__heading">{ currentSheet.name }</h1>
+                <div className="hero__sub-heading">{ currentSheet.description }</div>
+                <a className="btn btn--open-spreadsheet" target='_blank' href={currentSheet.link}>Go to Spreadsheet</a>
               </div>
             </div>
           </div>
@@ -31,7 +33,7 @@ class Spreadsheet extends Component {
                     <div className="asside-ui__header">
                       <div className="asside-ui__header__title">shared By</div>
                     </div>
-                    <div className="asside-ui__link-block"><img className="avatar" src="images/benjo.jpeg" />
+                    <div className="asside-ui__link-block"><img className="avatar" src="images/benjo.jpeg" alt='benjo'/>
                       <div className="asside-ui__link-block__text">Benjo Libor</div>
                     </div>
                   </div>
@@ -39,13 +41,13 @@ class Spreadsheet extends Component {
                     <div className="asside-ui__header">
                       <div>Created by</div>
                     </div>
-                    <div className="asside-ui__link-block"><img className="avatar" src="images/benjo.jpeg" />
+                    <div className="asside-ui__link-block"><img className="avatar" src="images/benjo.jpeg" alt='benjo'/>
                       <div className="asside-ui__link-block__text">Benjo Libor</div>
                     </div>
-                    <div className="asside-ui__link-block"><img className="avatar" src="images/profile-color.jpg" />
+                    <div className="asside-ui__link-block"><img className="avatar" src="images/profile-color.jpg" alt='profile-color'/>
                       <div className="asside-ui__link-block__text">Sidney Ottelohé</div>
                     </div>
-                    <div className="asside-ui__link-block"><img className="avatar" sizes="30px" src="images/webflow.jpg" srcSet="images/webflow-p-500x500.jpeg 500w, images/webflow.jpg 512w" />
+                    <div className="asside-ui__link-block"><img className="avatar" sizes="30px" src="images/webflow.jpg" srcSet="images/webflow-p-500x500.jpeg 500w, images/webflow.jpg 512w" alt='webflow'/>
                       <div className="asside-ui__link-block__text">Webflow Inc</div>
                     </div>
                   </div>
@@ -72,10 +74,10 @@ class Spreadsheet extends Component {
                           <div className="meta__data">
                             <div className="meta__data__tag">Finance</div>
                           </div>
-                          <div className="meta__data"><img className="meta__data__icon" src="images/view.svg" />
+                          <div className="meta__data"><img className="meta__data__icon" src="images/view.svg" alt='view-icon'/>
                             <div className="meta__data__text">10k</div>
                           </div>
-                          <div className="meta__data meta__data--last"><img className="meta__data__icon" src="images/comment.svg" />
+                          <div className="meta__data meta__data--last"><img className="meta__data__icon" src="images/comment.svg" alt='comment-icon'/>
                             <div className="meta__data__text">23</div>
                           </div>
                         </div>
@@ -95,10 +97,10 @@ class Spreadsheet extends Component {
                           <div className="meta__data">
                             <div className="meta__data__tag">Finance</div>
                           </div>
-                          <div className="meta__data"><img className="meta__data__icon" src="images/view.svg" />
+                          <div className="meta__data"><img className="meta__data__icon" src="images/view.svg" alt='view-icon'/>
                             <div className="meta__data__text">10k</div>
                           </div>
-                          <div className="meta__data meta__data--last"><img className="meta__data__icon" src="images/comment.svg" />
+                          <div className="meta__data meta__data--last"><img className="meta__data__icon" src="images/comment.svg" alt='comment-icon'/>
                             <div className="meta__data__text">23</div>
                           </div>
                         </div>
@@ -118,10 +120,10 @@ class Spreadsheet extends Component {
                           <div className="meta__data">
                             <div className="meta__data__tag">Finance</div>
                           </div>
-                          <div className="meta__data"><img className="meta__data__icon" src="images/view.svg" />
+                          <div className="meta__data"><img className="meta__data__icon" src="images/view.svg" alt='view-icon'/>
                             <div className="meta__data__text">10k</div>
                           </div>
-                          <div className="meta__data meta__data--last"><img className="meta__data__icon" src="images/comment.svg" />
+                          <div className="meta__data meta__data--last"><img className="meta__data__icon" src="images/comment.svg" alt='comment-icon'/>
                             <div className="meta__data__text">23</div>
                           </div>
                         </div>
@@ -141,10 +143,10 @@ class Spreadsheet extends Component {
                           <div className="meta__data">
                             <div className="meta__data__tag">Finance</div>
                           </div>
-                          <div className="meta__data"><img className="meta__data__icon" src="images/view.svg" />
+                          <div className="meta__data"><img className="meta__data__icon" src="images/view.svg" alt='view-icon'/>
                             <div className="meta__data__text">10k</div>
                           </div>
-                          <div className="meta__data meta__data--last"><img className="meta__data__icon" src="images/comment.svg" />
+                          <div className="meta__data meta__data--last"><img className="meta__data__icon" src="images/comment.svg" alt='comment-icon'/>
                             <div className="meta__data__text">23</div>
                           </div>
                         </div>
@@ -164,10 +166,10 @@ class Spreadsheet extends Component {
                           <div className="meta__data">
                             <div className="meta__data__tag">Finance</div>
                           </div>
-                          <div className="meta__data"><img className="meta__data__icon" src="images/view.svg" />
+                          <div className="meta__data"><img className="meta__data__icon" src="images/view.svg" alt='view-icon'/>
                             <div className="meta__data__text">10k</div>
                           </div>
-                          <div className="meta__data meta__data--last"><img className="meta__data__icon" src="images/comment.svg" />
+                          <div className="meta__data meta__data--last"><img className="meta__data__icon" src="images/comment.svg" alt='comment-icon'/>
                             <div className="meta__data__text">23</div>
                           </div>
                         </div>
@@ -179,23 +181,6 @@ class Spreadsheet extends Component {
               </div>
             </div>
           </div>
-          <section className="section-newsletter">
-            <div className="container">
-              <div className="common-title">Subscribe to our newsletter and discover new Spreadsheet every week!</div>
-              <div className="newsletter-form-wrapper w-form">
-                <form className="newsletter-form" data-name="Email Form" id="email-form" name="email-form">
-                  <input className="form__input w-input" data-name="Email 3" id="email-3" maxLength={256} name="email-3" placeholder="Enter your email address" required="required" type="email" />
-                  <input className="submit-button w-button" data-wait="Please wait..." type="submit" defaultValue="Submit" />
-                </form>
-                <div className="w-form-done">
-                  <div>Thank you! Your submission has been received!</div>
-                </div>
-                <div className="w-form-fail">
-                  <div>Oops! Something went wrong while submitting the form</div>
-                </div>
-              </div>
-            </div>
-          </section>
         </main>
       </div>
     );

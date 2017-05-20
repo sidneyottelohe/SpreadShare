@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
-import FeedItem from './FeedItem';
-
 class Footer extends Component {
   render() {
     return (
+      <div>
+      <section className="section-newsletter">
+        <div className="container">
+          <div className="common-title">Subscribe to our email digest to discover fresh spreadsheets.</div><a className="btn-subscribe btn-subscribe--large" href="subscribe.html">Subscribe</a>
+        </div>
+      </section>
       <footer className="footer">
         <div className="footer__main">
           <div className="container container--footer">
@@ -31,11 +35,12 @@ class Footer extends Component {
           <div className="container container--flex">
             <div className="footer__text footer__text--credit">Curated with ♥ by <a href="https://twitter.com/bnjmnlbr" target="_blank" className="footer__text--inline-link">Benjamin Libor</a> &amp;&nbsp;<a href="https://twitter.com/sidneyottelohe" target="_blank" className="footer__text--inline-link">Sidney Ottelohe</a>
             </div>
-            <a className="ph-button w-inline-block" href="https://www.producthunt.com/posts/spreadshare" target="_blank"><img src="images/product-hunt-logo-orange-240.jpg" width={120} />
+            <a className="ph-button w-inline-block" href="https://www.producthunt.com/posts/spreadshare" target="_blank"><img src="images/product-hunt-logo-orange-240.jpg" alt='product-hunt-logo' width={120} />
             </a>
           </div>
         </div>
       </footer>
+      </div>
     );
   }
 }

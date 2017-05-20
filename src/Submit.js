@@ -1,17 +1,35 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
-import FeedItem from './FeedItem';
-import Feed from './Feed';
-
+@observer
 class Submit extends Component {
+  submit() {
+    var sheet = this.props.store.createSheet(this.props.store.submitSheetInputs)
+    this.props.history.push(`/spreadsheet/${sheet.id}`)
+  }
+  updateInput(e) {
+    this.props.store.submitSheetInputs[e.target.name] = e.target.value
+  }
   render() {
+    const inputs = this.props.store.submitSheetInputs
     return (
       <div>
         <div className="section-hero">
           <div className="section-submit">
             <div className="container">
               <h1 className="hero__heading">Submit a Spreadsheet</h1>
+
               <div className="hero__sub-heading">Found or made a cool spreadsheet you want to share with the community? Submit it here and we'll review it!</div>
+              <h3>NEW FORM!!!! (needs styling and validations!!)</h3>
+              <div>
+                <div>ID: <input name='id' value={inputs.id} onChange={this.updateInput.bind(this)} /></div>
+                <div>Name: <input name='name' value={inputs.name} onChange={this.updateInput.bind(this)} /></div>
+                <div>Description: <input name='description' value={inputs.description} onChange={this.updateInput.bind(this)} /></div>
+                <div>Link: <input name='link' value={inputs.link} onChange={this.updateInput.bind(this)} /></div>
+                <div>Tag: <input name='tag' value={inputs.tag} onChange={this.updateInput.bind(this)} /></div>
+                <div><button className='new-submit' onClick={this.submit.bind(this)}>New Submit</button></div>
+              </div>
+              <h3>OLD FORM!!!!</h3>
               <div className="submit-wrapper w-form">
                 <form className="submit-form" data-name="Submit Spreadsheet" id="wf-form-Submit-Spreadsheet" name="wf-form-Submit-Spreadsheet">
                   <div className="submit-form__rows submit-form__rows--padding">
@@ -59,7 +77,8 @@ class Submit extends Component {
                   </div>
                   <div className="form__row--last submit-form__rows">
                     <div className="w-clearfix">
-                      <input className="submit-form__btn w-button" data-wait="Please wait..." type="submit" defaultValue="Submit Spreadsheet" /><a className="form__btn--danger submit-form__btn" href="#" id="cancel">Cancel</a>
+                      <input className="submit-form__btn w-button" data-wait="Please wait..." type="submit" defaultValue="Submit Spreadsheet" />
+                      <a className="form__btn--danger submit-form__btn" id="cancel">Cancel</a>
                     </div>
                   </div>
                 </form>

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import FeedItem from './FeedItem';
-import Feed from './Feed';
-
 class Subscribe extends Component {
   render() {
     return (
