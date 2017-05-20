@@ -11,68 +11,29 @@ class FeedSideMenu extends Component {
     var direction = this.props.store.sort.direction === 'asc' ? 'desc' : 'asc'
     this.props.store.sort = { property: property, direction: direction }
   }
-  search(e) {
-    this.props.store.search = e.target.value
-  }
   isFilter(filter) {
-    return this.props.store.filter === filter ? 'button is-checked' : 'button'
+    return this.props.store.filter === filter ? 'feed__filter__toggle--active ' : ''
   }
   isSort(sort) {
-    return this.props.store.sort.property === sort ? ' is-checked' : ''
+    return this.props.store.sort.property === sort ? 'feed__filter__toggle--active ' : ''
   }
   render() {
     return (
-      <aside className="feed__aside">
-        <div className="filter-menu">
-          <div className="filter-menu-header w-hidden-small w-hidden-tiny">
-            <div>Search Feed</div>
-          </div>
-          <div className="filter-menu-wrap w-hidden-small w-hidden-tiny" id="search">
-            <div className="w-embed">
-              <input
-                type="text"
-                className="w-input quicksearch"
-                id="quicksearch"
-                placeholder="Search Spreadsheets..."
-                onChange={this.search.bind(this)}
-                value={this.props.store.search} />
-            </div>
-          </div>
-          <div className="filter-menu-header">
-            <div>sort feed</div>
-          </div>
-          <div className="filter-menu-wrap" id="sort">
-            <div className="w-embed">
-              <button className={`button recent${this.isSort('created_at')}`} onClick={this.sort.bind(this, 'created_at')}>Recently Added</button>
-              <button className={`button popular${this.isSort('upvotes')}`} onClick={this.sort.bind(this, 'upvotes')}>Popular</button>
-            </div>
-          </div>
-          <div className="filter-menu-header">
-            <div>filter by category</div>
-          </div>
-          <div className="filter-menu-wrap" id="filters">
-            <div className="w-embed">
-              <button className={this.isFilter('')} onClick={this.filter.bind(this, '')}>All</button>
-              <button className={this.isFilter('finance')} onClick={this.filter.bind(this, 'finance')}>Finance</button>
-              <button className={this.isFilter('product')} onClick={this.filter.bind(this, 'product')}>Product</button>
-              <button className={this.isFilter('people')} onClick={this.filter.bind(this, 'people')}>People</button>
-              <button className={this.isFilter('growth')} onClick={this.filter.bind(this, 'growth')}>Growth</button>
-              <button className={this.isFilter('inspiration')} onClick={this.filter.bind(this, 'inspiration')}>Inspiration</button>
-              <button className={this.isFilter('tech')} onClick={this.filter.bind(this, 'tech')}>Tech</button>
-              <button className={this.isFilter('business')} onClick={this.filter.bind(this, 'business')}>Business</button>
-              <button className={this.isFilter('operations')} onClick={this.filter.bind(this, 'operations')}>Operations</button>
-              <button className={this.isFilter('data')} onClick={this.filter.bind(this, 'data')}>Data</button>
-            </div>
-          </div>
+      <div className="side-bar">
+        <div className="filter__group">
+          <div className="filter__group__text">Sort Feed</div>
+          <div className={`${this.isSort('upvotes')}filter__toggle`} onClick={this.sort.bind(this, 'upvotes')}>Popular</div>
+          <div className={`${this.isSort('created_at')}filter__toggle`} onClick={this.sort.bind(this, 'created_at')}>Recent</div>
         </div>
-        <div className="digest-card w-hidden-small w-hidden-tiny">
-          <div className="digest-card__title">Get updates in your inbox</div>
-          <div className="digest-card__close" data-ix="close-digest-card">x</div>
-          <Link to="/subscribe">
-            <span className="btn-subscribe" href="subscribe.html">Subscribe</span>
-          </Link>
+        <div className="filter__group">
+          <div className="filter__group__text">Filter by Category</div>
+          <div className={`${this.isFilter('')}filter__toggle`} onClick={this.filter.bind(this, '')}>All</div>
+          <div className={`${this.isFilter('people')}filter__toggle`} onClick={this.filter.bind(this, 'people')}>People</div>
+          <div className={`${this.isFilter('finance')}filter__toggle`} onClick={this.filter.bind(this, 'finance')}>Finance</div>
+          <div className={`${this.isFilter('growth')}filter__toggle`} onClick={this.filter.bind(this, 'growth')}>Growth</div>
+          <div className={`${this.isFilter('fitness')}filter__toggle`} onClick={this.filter.bind(this, 'fitness')}>Fitness</div>
         </div>
-      </aside>
+      </div>
     );
   }
 }

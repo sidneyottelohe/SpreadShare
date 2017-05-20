@@ -21,6 +21,9 @@ class Sheet {
     this.created_at = new Date()
   }
 
+  upvoteSheet() {
+    this.upvotes += 1
+  }
 }
 
 export default Sheet;

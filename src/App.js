@@ -15,39 +15,37 @@ import Subscribe from './Subscribe';
 import Submit from './Submit';
 import Spreadsheet from './Spreadsheet';
 
-import './App.css';
-import './Components.css';
-import './Normalize.css';
+import './css/normalize.css';
+import './css/webflow.css';
+import './css/spreadshare-beta.webflow.css';
 
 class App extends Component {
   render() {
     return (
+      <Router>
         <div>
-          <Router>
-            <div>
-              <Header />
-              <Route exact path='/' render={(props) => (
-                <Home {...this.props} {...props} />
-              )}/>
-              <Route path='/about' render={(props) => (
-                <About {...this.props} {...props} />
-              )}/>
-              <Route path='/topics' render={(props) => (
-                <Topics {...this.props} {...props} />
-              )}/>
-              <Route path='/subscribe' render={(props) => (
-                <Subscribe {...this.props} {...props} />
-              )}/>
-              <Route path='/submit' render={(props) => (
-                <Submit {...this.props} {...props} />
-              )}/>
-              <Route path='/spreadsheet/:name' render={(props) => (
-                <Spreadsheet {...this.props} {...props} />
-              )}/>
-              <Footer />
-            </div>
-          </Router>
+        <Header {...this.props} />
+          <Route exact path='/' render={(props) => (
+            <Home {...this.props} {...props} />
+          )}/>
+          <Route path='/about' render={(props) => (
+            <About {...this.props} {...props} />
+          )}/>
+          <Route path='/topics' render={(props) => (
+            <Topics {...this.props} {...props} />
+          )}/>
+          <Route path='/subscribe' render={(props) => (
+            <Subscribe {...this.props} {...props} />
+          )}/>
+          <Route path='/submit' render={(props) => (
+            <Submit {...this.props} {...props} />
+          )}/>
+          <Route path='/spreadsheet/:name' render={(props) => (
+            <Spreadsheet {...this.props} {...props} />
+          )}/>
+          <Footer />
         </div>
+      </Router>
     );
   }
 }
