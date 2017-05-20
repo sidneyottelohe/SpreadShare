@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
 import {
   BrowserRouter as Router,
@@ -21,6 +22,7 @@ import './App.css';
 import './Components.css';
 import './Normalize.css';
 
+@observer
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,6 +39,7 @@ class App extends Component {
           <Router>
             <div>
               <Header />
+              { this.props.store.sheets[0]}
               <Route exact path='/' render={(props) => (
                 <Home {...props} sheets={this.state.sheets} />
               )}/>
