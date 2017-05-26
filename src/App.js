@@ -5,15 +5,16 @@ import {
   Route
 } from 'react-router-dom'
 
-import Home from './Home';
-import Footer from './Footer';
-import Header from './Header';
 
-import About from './About';
-import Topics from './Topics';
-import Subscribe from './Subscribe';
-import Submit from './Submit';
-import Spreadsheet from './Spreadsheet';
+import Footer from './footer/Footer';
+import Header from './header/Header';
+import Home from './home/Home';
+import About from './about/About';
+import Topics from './topics/Topics';
+import Subscribe from './subscribe/Subscribe';
+import Submit from './submit/Submit';
+import Spreadsheet from './spreadsheet/Spreadsheet';
+import User from './user/User';
 
 import './css/normalize.css';
 import './css/webflow.css';
@@ -42,6 +43,9 @@ class App extends Component {
           )}/>
           <Route path='/spreadsheet/:name' render={(props) => (
             <Spreadsheet {...this.props} {...props} />
+          )}/>
+          <Route path='/user/:name' render={(props) => (
+            <User {...this.props} {...props} />
           )}/>
           <Footer />
         </div>
