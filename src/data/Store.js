@@ -1,6 +1,7 @@
 import { computed, observable } from "mobx";
 
 import Sheet from './Sheet'
+import Notification from './Notification'
 
 class Store {
   @observable sheets = [
@@ -22,6 +23,11 @@ class Store {
     tag: ''
   }
 
+  @observable notifications = [
+    new Notification({body: 'This is a notification', link: 'http://google.com', created_at: '1 day ago'}),
+    new Notification({body: 'This is another notification', link: 'http://google.com', created_at: '2 days ago'})
+  ]
+
   @computed get filteredSheets() {
     var sheets = this.sheets
 
@@ -38,7 +44,7 @@ class Store {
   }
 
   @computed get currentSheet() {
-    return this.sheets.filter(sheet => sheet.id === this.currentPath.name)[0]
+    return this.sheets[0]
   }
 
   sortSheets (prop, direction) {

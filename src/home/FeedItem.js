@@ -27,7 +27,7 @@ class FeedItem extends Component {
           </div>
           <div className="card__meta"><a className="card__meta__category" href="#">{sheet.tag}</a>
             <div className="card__meta__pill card__meta__pill--type">list [websites]</div>
-            <div className="card__meta__pill card__meta__pill--comments">{sheet.comments} comments</div>
+            <div className="card__meta__pill card__meta__pill--comments">{sheet.comments.length} comments</div>
           </div>
         </div>
       </li>
