@@ -116,8 +116,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]',
-          presets: ["es2015"]
+          name: 'static/media/[name].[hash:8].[ext]'
         }
       },
       // Process JS with Babel.

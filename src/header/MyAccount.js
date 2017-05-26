@@ -55,4 +55,4 @@ class MyAccount extends Component {
   }
 }
 
-export default onClickOutside(MyAccount);
+export default onClickOutside(MyAccount)
