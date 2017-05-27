@@ -13,8 +13,13 @@ class Store {
     autorun(() => {
       console.log('lets try to hit the api')
       this.fetching = true
+      if (window.location.origin === "http://localhost:3001") {
+        var prefix = ''
+      } else {
+        var prefix = 'https://spreadshareapi.herokuapp.com/'
+      }
       superagent
-        .get('spreadsheets')
+        .get(prefix + 'spreadsheets')
         .set('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTU5OTEyNjh9.RgMhD0q7F1iYIiznSk75pQpx-vIuC2DQ8cYW_9pbjIk')
         .set('Accept', 'application/vnd.spreadshare.v1+json')
         .then(data => {
