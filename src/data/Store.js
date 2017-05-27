@@ -15,7 +15,7 @@ class Store {
       this.fetching = true
       superagent
         .get('spreadsheets')
-        .set('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTU5MjI5NjZ9.83U8f4okUrroTrKKLECUtOdfAIBuSzXy753LNTU9jRU')
+        .set('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTU5OTEyNjh9.RgMhD0q7F1iYIiznSk75pQpx-vIuC2DQ8cYW_9pbjIk')
         .set('Accept', 'application/vnd.spreadshare.v1+json')
         .then(data => {
           this.sheets = data.body
