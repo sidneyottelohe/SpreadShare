@@ -9,7 +9,6 @@ import Discussion from './Discussion'
 class Spreadsheet extends Component {
   render() {
     this.props.store.currentPath = this.props.match.params
-    const { currentSheet } = this.props.store
     return (
       <div>
         <Header {...this.props} />

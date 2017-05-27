@@ -8,9 +8,9 @@ class Notification extends Component {
       <div className="account-activity__item">
         <div className="account-activity__item__inner">
           <Link to={notification.link}>
-            <a className="account-activity__item__inner--link">
+            <span className="account-activity__item__inner--link">
               {notification.body}
-            </a>
+            </span>
           </Link>
         </div>
         <div className="account-activity__item__meta">

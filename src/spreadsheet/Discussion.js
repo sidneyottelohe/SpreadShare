@@ -11,7 +11,7 @@ class Discussion extends Component {
           {
             this.props.store.currentSheet.comments.map(function(comment, idx) {
               return <Comment key={idx} comment={comment} />
-            }.bind(this))
+            })
           }
         </div>
         <h2 className="content__heading">Discussion</h2>

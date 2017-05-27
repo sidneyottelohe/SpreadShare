@@ -9,7 +9,7 @@ class Header extends Component {
           <div className="header__main">
             <div className="header__main__details">
               <h1 className="header__heading">
-                {sheet.name}
+                {sheet.title}
               </h1>
               <div className="header__sub-heading header__sub-heading--stop">
                 {sheet.description}

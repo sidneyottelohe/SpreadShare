@@ -17,7 +17,7 @@ class FeedItem extends Component {
               <Link to={`/spreadsheet/${sheet.id}`}>
                 <span className="card__main__heading__link w-inline-block">
                   <h2 className="card__main__heading">
-                    { sheet.name }
+                    { sheet.title }
                   </h2>
                 </span>
               </Link>

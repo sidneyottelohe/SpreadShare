@@ -15,10 +15,12 @@ class Header extends Component {
       <nav className="navbar">
         <div className="container container--navbar">
           <div className="div-block">
-            <a className="brand w-inline-block">
-              <div className="brand__logo">SpreadShare<span className="navbar__brand__logo-span">Beta</span>
-              </div>
-            </a>
+            <Link to='/'>
+              <span className="brand w-inline-block">
+                <div className="brand__logo">SpreadShare<span className="navbar__brand__logo-span">Beta</span>
+                </div>
+              </span>
+            </Link>
           </div>
           <input
             className="search"

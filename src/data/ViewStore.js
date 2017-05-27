@@ -1,4 +1,4 @@
-import { computed, observable } from "mobx";
+import { observable } from "mobx";
 
 class ViewStore {
   @observable notificationsOpen = false

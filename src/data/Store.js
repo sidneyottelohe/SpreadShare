@@ -1,19 +1,39 @@
-import { computed, observable } from "mobx";
+import { computed, observable, autorun } from "mobx";
+import superagent from 'superagent'
 
 import Sheet from './Sheet'
 import Notification from './Notification'
 
 class Store {
-  @observable sheets = [
-    new Sheet({id: '1', name: 'Cool Finance sheet', description: 'This is a description.', link: 'http://google.com', tag: 'finance'}),
-    new Sheet({id: '2', name: 'Fun Product Spreadsheet', description: 'This is another description.', link: 'http://google.com', tag: 'product'}),
-    new Sheet({id: '3', name: 'Cool People', description: 'A fun description', link: 'http://google.com', tag: 'people'}),
-    new Sheet({id: '4', name: 'All about growth.', description: 'A fun description.', link: 'http://google.com', tag: 'growth'})
-  ]
+  @observable sheets = []
+  @observable fetching = false
+  @observable fetched = false
+
+  constructor() {
+    autorun(() => {
+      console.log('lets try to hit the api')
+      this.fetching = true
+      superagent
+        .get('spreadsheets')
+        .set('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0OTU5MjI5NjZ9.83U8f4okUrroTrKKLECUtOdfAIBuSzXy753LNTU9jRU')
+        .set('Accept', 'application/vnd.spreadshare.v1+json')
+        .then(data => {
+          this.sheets = data.body
+          this.fetching = false
+          this.fetched = true
+          // this.updateData(data);
+          // this.stopLoading();
+        })
+        .catch(err => {
+          // this.stopLoading(err);
+        });
+    });
+  }
+
   @observable filter = ''
   @observable search = ''
   @observable sort = { property: 'upvotes', direction: 'desc' }
-  @observable currentPath = {name: ''}
+  @observable currentPath = { name: '' }
 
   @observable submitSheetInputs = {
     id: '',
@@ -40,7 +60,7 @@ class Store {
 
     // search the sheets
     var sheetsSearch = new RegExp(this.search, 'i')
-    return filteredSheets.filter(sheet => !this.search || sheetsSearch.test(sheet.name) || sheetsSearch.test(sheet.description))
+    return filteredSheets.filter(sheet => !this.search || sheetsSearch.test(sheet.title) || sheetsSearch.test(sheet.description))
   }
 
   @computed get currentSheet() {

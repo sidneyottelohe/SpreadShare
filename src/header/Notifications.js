@@ -37,7 +37,7 @@ class Notifications extends Component {
                 return <Notification
                           key={idx}
                           notification={notification}/>
-              }.bind(this))
+              })
             }
             <div className="account-activity__view-all">View All Activity</div>
           </div>

@@ -31,16 +31,16 @@ class MyAccount extends Component {
             <div className="account-dropdown__links-wrapper">
               <div className="account-dropdown__link">
                 <Link to='/user/hello'>
-                  <a className="account-dropdown__link__anchor w-dropdown-link">
+                  <span className="account-dropdown__link__anchor w-dropdown-link">
                     My Profile
-                  </a>
+                  </span>
                 </Link>
               </div>
               <div className="account-dropdown__link">
                 <Link to='/submit'>
-                  <a className="account-dropdown__link__anchor w-dropdown-link">
+                  <span className="account-dropdown__link__anchor w-dropdown-link">
                     Submit spreadsheet
-                  </a>
+                  </span>
                 </Link>
               </div>
               <div className="account-dropdown__link">

@@ -1,7 +1,5 @@
 import { observable } from "mobx";
 
-import Comment from './Comment'
-
 class Sheet {
   @observable name
   @observable id
@@ -20,18 +18,11 @@ class Sheet {
     this.tag = params.tag
     this.upvotes = 0
     this.created_at = new Date()
-    this.comments = this.generateComments()
+    this.comments = 0
   }
 
   upvoteSheet() {
     this.upvotes += 1
-  }
-
-  generateComments() {
-    return [
-      new Comment({ body: 'Hello World', author: 'Pat Walls', created_at: '1 day ago' }),
-      new Comment({ body: 'Foo Bar', author: 'Sidney Ottelohe', created_at: '2 days ago' })
-    ]
   }
 }
 
