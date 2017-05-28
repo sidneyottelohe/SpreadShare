@@ -16,6 +16,7 @@ class Notifications extends Component {
     return this.props.viewStore.notificationsOpen ? ' w--open' : ''
   }
   render() {
+    const notifications = this.props.store.notifications || []
     return(
       <div
         className="activity-dropdown w-dropdown"
@@ -33,7 +34,7 @@ class Notifications extends Component {
             className="account-activity-wrapper"
           >
             {
-              this.props.store.notifications.map(function(notification, idx) {
+              notifications.map(function(notification, idx) {
                 return <Notification
                           key={idx}
                           notification={notification}/>

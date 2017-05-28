@@ -15,8 +15,11 @@ class Feed extends Component {
             {
               (filteredSheets.length > 0) ?
                 filteredSheets.map(function(sheet, idx) {
-                  return <FeedItem sheet={sheet} key={idx}/>
-                }) : <div className="w-dyn-empty"><div>No items found.</div></div>
+                  return <FeedItem
+                            {...this.props}
+                            sheet={sheet}
+                            key={idx}/>
+                }.bind(this)) : <div className="w-dyn-empty"><div>No items found.</div></div>
             }
           </ul>
         </div>

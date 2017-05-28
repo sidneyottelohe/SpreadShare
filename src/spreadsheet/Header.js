@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class Header extends Component {
   render() {
-    const sheet = this.props.store.currentSheet
+    const sheet = this.props.store.sheet
     return(
       <header className="header header--detail">
         <div className="container container--align-left">

@@ -5,6 +5,7 @@
   "dependencies": {
     "mobx": "^3.1.9",
     "mobx-react": "^4.1.8",
+    "node-uuid": "^1.4.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-onclickoutside": "^5.11.1",
@@ -57,7 +58,6 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
-  "proxy": "http://localhost:3000",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
