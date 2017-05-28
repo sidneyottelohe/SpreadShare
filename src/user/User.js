@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class User extends Component {
   render() {
+    const user = this.props.store.currentUser
     return (
       <div>
         <header className="header header--user">
@@ -9,7 +10,7 @@ class User extends Component {
             <div className="user-content-wrapper"><img alt='icon' className="user__avatar" src="images/profile-color.jpg" />
               <div className="user__main">
                 <div>
-                  <h1 className="user__name">Sidney Ottelohe</h1>
+                  <h1 className="user__name">{user.name}</h1>
                   <div className="user__tagline">Product &amp; UI Design</div><a className="button button--user-follow" href="#">Follow</a>
                 </div>
                 <div className="header__main__actions">

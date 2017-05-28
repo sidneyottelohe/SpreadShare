@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 @observer
 class FeedItem extends Component {
   upvote() {
-    this.props.sheet.upvoteSheet()
+    this.props.store.upvoteSheet(this.props.sheet.id)
   }
   render() {
     const sheet = this.props.sheet
@@ -23,7 +23,7 @@ class FeedItem extends Component {
               </Link>
               <div className="card__main__sub-heading">{sheet.description}</div>
             </div>
-            <div className="card__vote__toggle" onClick={this.upvote.bind(this)}>{sheet.upvotes}</div>
+            <div className="card__vote__toggle" onClick={this.upvote.bind(this)}>{sheet.upvotes_count}</div>
           </div>
           <div className="card__meta"><a className="card__meta__category" href="#">{sheet.tag}</a>
             <div className="card__meta__pill card__meta__pill--type">list [websites]</div>

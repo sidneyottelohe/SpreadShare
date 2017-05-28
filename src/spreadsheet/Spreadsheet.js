@@ -8,7 +8,9 @@ import Discussion from './Discussion'
 @observer
 class Spreadsheet extends Component {
   render() {
-    this.props.store.currentPath = this.props.match.params
+    if (Number(this.props.match.params.name) !== this.props.store.sheet.id) {
+      this.props.store.changeSheet(this.props.match.params.name)
+    }
     return (
       <div>
         <Header {...this.props} />

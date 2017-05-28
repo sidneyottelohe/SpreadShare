@@ -4,12 +4,13 @@ import Comment from './Comment'
 
 class Discussion extends Component {
   render() {
+    const comments = this.props.store.sheet.comments || []
     return(
       <div className="content">
         <h2 className="content__heading">Discussion</h2>
         <div className="comments">
           {
-            this.props.store.currentSheet.comments.map(function(comment, idx) {
+            comments.map(function(comment, idx) {
               return <Comment key={idx} comment={comment} />
             })
           }

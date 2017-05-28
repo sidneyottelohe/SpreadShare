@@ -4,20 +4,107 @@ import { observer } from 'mobx-react';
 @observer
 class Submit extends Component {
   submit() {
-    var sheet = this.props.store.createSheet(this.props.store.submitSheetInputs)
-    this.props.history.push(`/spreadsheet/${sheet.id}`)
+    // var sheet = this.props.store.createSheet(this.props.store.submitSheetInputs)
+    // this.props.history.push(`/spreadsheet/${sheet.id}`)
   }
   updateInput(e) {
     this.props.store.submitSheetInputs[e.target.name] = e.target.value
   }
+  updateSignUpInput(e) {
+    this.props.store.signUpInputs[e.target.name] = e.target.value
+  }
+  signUp() {
+    this.props.store.signUp()
+  }
+  updateSignInInput(e) {
+    this.props.store.signInInputs[e.target.name] = e.target.value
+  }
+  signIn() {
+    this.props.store.signIn()
+  }
   render() {
     const inputs = this.props.store.submitSheetInputs
+    const signUpInputs = this.props.store.signUpInputs
+    const signInInputs = this.props.store.signInInputs
     return (
       <div>
         <div className="section-hero">
           <div className="section-submit">
             <div className="container">
               <h1 className="hero__heading">Submit a Spreadsheet</h1>
+              <h3>SIGN IN</h3>
+              <div>
+                <div>
+                  Email:
+                  <input
+                    name='email'
+                    value={signInInputs.email}
+                    onChange={this.updateSignInInput.bind(this)}
+                  />
+                </div>
+                <div>
+                  Password:
+                  <input
+                    name='password'
+                    type='password'
+                    value={signInInputs.password}
+                    onChange={this.updateSignInInput.bind(this)}
+                  />
+                </div>
+                <div>
+                  <button
+                    className='new-submit'
+                    onClick={this.signIn.bind(this)}
+                  >
+                    Sign In
+                  </button>
+                </div>
+              </div>
+              <h3>SIGN UP</h3>
+              <div>
+                <div>
+                  Name:
+                  <input
+                    name='name'
+                    value={signUpInputs.name}
+                    onChange={this.updateSignUpInput.bind(this)}
+                  />
+                </div>
+                <div>
+                  Email:
+                  <input
+                    name='email'
+                    value={signUpInputs.email}
+                    onChange={this.updateSignUpInput.bind(this)}
+                  />
+                </div>
+                <div>
+                  Password:
+                  <input
+                    name='password'
+                    type='password'
+                    value={signUpInputs.password}
+                    onChange={this.updateSignUpInput.bind(this)}
+                  />
+                </div>
+                <div>
+                  Password Confirmation:
+                  <input
+                    name='password_confirmation'
+                    type='password'
+                    value={signUpInputs.password_confirmation}
+                    onChange={this.updateSignUpInput.bind(this)}
+                  />
+                </div>
+                <div>
+                  <button
+                    className='new-submit'
+                    onClick={this.signUp.bind(this)}
+                  >
+                    New Submit
+                  </button>
+                </div>
+              </div>
 
               <div className="hero__sub-heading">Found or made a cool spreadsheet you want to share with the community? Submit it here and we'll review it!</div>
               <h3>NEW FORM!!!! (needs styling and validations!!)</h3>
