@@ -23,7 +23,9 @@ class Header extends Component {
                 <div className="pill__meta">
                   {sheet.category}
                 </div>
-                <div className="pill__meta pill__meta--format">Type[Format]</div>
+                <div className="pill__meta pill__meta--format">
+                  {sheet.format} [{sheet.category}]
+                </div>
               </div>
               <div className="div-block-2">
                 <a

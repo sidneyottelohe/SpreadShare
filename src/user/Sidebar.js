@@ -4,7 +4,6 @@ import { observer } from 'mobx-react';
 @observer
 class Sidebar extends Component {
   changeFilter(filter) {
-    console.log('trying', filter);
     this.props.viewStore.userSheetsFilter = filter
   }
   render() {

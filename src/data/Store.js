@@ -87,17 +87,14 @@ class Store {
   // other / where to put this?
 
   @computed get filteredSheets() {
-    console.log('this works old thing');
     return this.viewStore.filteredSheets(this.sheets)
   }
 
   @computed get userSheets() {
-    console.log('why doesnt this work');
     return this.viewStore.userSheets(this.sheets)
   }
 
   @computed get sheet() {
-    console.log('recomputing');
     return this.sheets.find(sheet => sheet.id === this.viewStore.sheet) || {}
   }
 

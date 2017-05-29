@@ -3,11 +3,15 @@ import uuid from 'node-uuid';
 
 class Sheet {
   id = null
-  // upvoted = null
-  // submitted = null
-  // created = null
+  upvoted = null
+  submitted = null
+  created = null
+  category = null
+  format = null
+  user = null
 
   @observable comments = [];
+  @observable tag_names = [];
   @observable description = "";
   @observable title = "";
   @observable upvotes = [];
@@ -45,6 +49,7 @@ class Sheet {
     // make sure our changes aren't send back to the server
     this.autoSave = false;
     this.comments = json.comments
+    this.tag_names = json.tag_names
     this.description = json.description
     this.title = json.title
     this.upvotes = json.upvotes
@@ -53,6 +58,9 @@ class Sheet {
     this.upvoted = json.upvoted
     this.submitted = json.submitted
     this.created = json.created
+    this.category = json.category
+    this.format = json.format
+    this.user = json.user
   }
 
 }

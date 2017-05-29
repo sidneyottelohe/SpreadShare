@@ -25,8 +25,8 @@ class FeedItem extends Component {
             </div>
             <div className="card__vote__toggle" onClick={this.upvote.bind(this)}>{sheet.upvotes_count}</div>
           </div>
-          <div className="card__meta"><a className="card__meta__category" href="#">{sheet.tag}</a>
-            <div className="card__meta__pill card__meta__pill--type">list [websites]</div>
+          <div className="card__meta"><a className="card__meta__category" href="#">{sheet.category}</a>
+            <div className="card__meta__pill card__meta__pill--type">{sheet.format} [{sheet.category}]</div>
             <div className="card__meta__pill card__meta__pill--comments">{sheet.comments.length} comments</div>
           </div>
         </div>
