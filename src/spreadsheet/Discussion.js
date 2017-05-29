@@ -4,7 +4,8 @@ import Comment from './Comment'
 
 class Discussion extends Component {
   render() {
-    const comments = this.props.store.sheet.comments || []
+    const { sheet } = this.props.store
+    const comments = sheet.comments || []
     return(
       <div className="content">
         <h2 className="content__heading">Discussion</h2>

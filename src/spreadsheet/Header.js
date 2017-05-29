@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
+import { observer } from 'mobx-react';
 
+@observer
 class Header extends Component {
+  upvote() {
+    this.props.store.sheet.upvote()
+  }
   render() {
     const sheet = this.props.store.sheet
     return(
@@ -15,21 +20,26 @@ class Header extends Component {
                 {sheet.description}
               </div>
               <div className="pill-group pill-group--header">
-                <div className="pill__meta">Category</div>
+                <div className="pill__meta">
+                  {sheet.category}
+                </div>
                 <div className="pill__meta pill__meta--format">Type[Format]</div>
               </div>
               <div className="div-block-2">
                 <a
                   className="button button--sheets"
-                  href={sheet.link}
+                  href={sheet.url}
                   target='_blank'
                 >
                     ➜ OPEN SPREADSHEET
                 </a>
               </div>
             </div>
-            <div className="header__main__actions">
-              <div className="vote-toggle">{sheet.upvotes}</div>
+            <div
+              className="header__main__actions"
+              onClick={this.upvote.bind(this)}
+            >
+              <div className="vote-toggle">{sheet.upvotes_count}</div>
               <div className="flag" />
             </div>
           </div>

@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 @observer
 class FeedItem extends Component {
   upvote() {
-    this.props.store.upvoteSheet(this.props.sheet.id)
+    this.props.sheet.upvote()
   }
   render() {
     const sheet = this.props.sheet

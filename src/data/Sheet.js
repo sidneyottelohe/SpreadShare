@@ -1,8 +1,11 @@
-import { observable, computed, reaction } from "mobx";
+import { observable } from "mobx";
 import uuid from 'node-uuid';
 
 class Sheet {
   id = null
+  // upvoted = null
+  // submitted = null
+  // created = null
 
   @observable comments = [];
   @observable description = "";
@@ -13,48 +16,29 @@ class Sheet {
 
   store = null
 
-  /**
-   * Indicates whether changes in this object
-   * should be submitted to the server
-   */
-  autoSave = true;
-
-  /**
-   * Disposer for the side effect that automatically
-   * stores this Todo, see @dispose.
-   */
-  saveHandler = null;
-
   constructor(store, id = uuid.v4()) {
     this.store = store;
-    this.id = id;
+    this.id = id
+  }
 
-    this.saveHandler = reaction(
-      // observe everything that is used in the JSON:
-      () => this.asJson,
-      // if autoSave is on, send json to server
-      (json) => {
-        if (this.autoSave) {
-          console.log('try to save the sheet using a transport layer')
-          // this.store.transportLayer.saveSheet(json);
-        }
-      }
-    );
+  create() {
+    this.store.apiLayer.createSheet(this.store.viewStore.submitSheetInputs)
+      .then(json => this.store.updateSheetFromServer(json))
+  }
+
+  upvote() {
+    this.store.apiLayer.upvoteSheet(this.id)
+      .then(spreadsheet => this.store.updateSheetFromServer(spreadsheet))
+  }
+
+  upvoteSheet(id) {
+    this.apiLayer.upvoteSheet(id)
+      .then(spreadsheet => this.updateSheetFromServer(spreadsheet))
   }
 
   delete() {
-    console.log('try to remove the sheet using the transport layer')
-    // this.store.transportLayer.deleteTodo(this.id);
-    this.store.removeSheet(this);
-  }
-
-  @computed get asJson() {
-    return {
-      id: this.id,
-      title: this.title,
-      // task: this.task,
-      // authorId: this.author ? this.author.id : null
-    };
+    this.store.apiLayer.destroySheet(this.id)
+      .then(data => console.log(data, 'has been deleted') )
   }
 
   updateFromJson(json) {
@@ -66,11 +50,9 @@ class Sheet {
     this.upvotes = json.upvotes
     this.upvotes_count = json.upvotes_count
     this.url = json.url
-  }
-
-  dispose() {
-    // clean up the observer
-    this.saveHandler();
+    this.upvoted = json.upvoted
+    this.submitted = json.submitted
+    this.created = json.created
   }
 
 }

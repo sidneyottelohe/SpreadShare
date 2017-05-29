@@ -4,28 +4,27 @@ import { observer } from 'mobx-react';
 @observer
 class Submit extends Component {
   submit() {
-    // var sheet = this.props.store.createSheet(this.props.store.submitSheetInputs)
-    // this.props.history.push(`/spreadsheet/${sheet.id}`)
+    this.props.store.createSheet()
   }
   updateInput(e) {
-    this.props.store.submitSheetInputs[e.target.name] = e.target.value
+    this.props.viewStore.submitSheetInputs[e.target.name] = e.target.value
   }
   updateSignUpInput(e) {
-    this.props.store.signUpInputs[e.target.name] = e.target.value
+    this.props.viewStore.signUpInputs[e.target.name] = e.target.value
   }
   signUp() {
     this.props.store.signUp()
   }
   updateSignInInput(e) {
-    this.props.store.signInInputs[e.target.name] = e.target.value
+    this.props.viewStore.signInInputs[e.target.name] = e.target.value
   }
   signIn() {
     this.props.store.signIn()
   }
   render() {
-    const inputs = this.props.store.submitSheetInputs
-    const signUpInputs = this.props.store.signUpInputs
-    const signInInputs = this.props.store.signInInputs
+    const inputs = this.props.viewStore.submitSheetInputs
+    const signUpInputs = this.props.viewStore.signUpInputs
+    const signInInputs = this.props.viewStore.signInInputs
     return (
       <div>
         <div className="section-hero">
@@ -109,11 +108,9 @@ class Submit extends Component {
               <div className="hero__sub-heading">Found or made a cool spreadsheet you want to share with the community? Submit it here and we'll review it!</div>
               <h3>NEW FORM!!!! (needs styling and validations!!)</h3>
               <div>
-                <div>ID: <input name='id' value={inputs.id} onChange={this.updateInput.bind(this)} /></div>
-                <div>Name: <input name='name' value={inputs.name} onChange={this.updateInput.bind(this)} /></div>
+                <div>Title: <input name='title' value={inputs.title} onChange={this.updateInput.bind(this)} /></div>
                 <div>Description: <input name='description' value={inputs.description} onChange={this.updateInput.bind(this)} /></div>
-                <div>Link: <input name='link' value={inputs.link} onChange={this.updateInput.bind(this)} /></div>
-                <div>Tag: <input name='tag' value={inputs.tag} onChange={this.updateInput.bind(this)} /></div>
+                <div>URL: <input name='url' value={inputs.url} onChange={this.updateInput.bind(this)} /></div>
                 <div><button className='new-submit' onClick={this.submit.bind(this)}>New Submit</button></div>
               </div>
               <h3>OLD FORM!!!!</h3>

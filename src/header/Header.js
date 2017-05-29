@@ -8,7 +8,7 @@ import MyAccount from './MyAccount';
 @observer
 class Header extends Component {
   search(e) {
-    this.props.store.search = e.target.value
+    this.props.viewStore.search = e.target.value
   }
   render() {
     return (

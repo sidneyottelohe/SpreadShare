@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
 import {
   BrowserRouter as Router,
@@ -19,8 +20,11 @@ import './css/normalize.css';
 import './css/webflow.css';
 import './css/spreadshare-beta.webflow.css';
 
+@observer
 class App extends Component {
   render() {
+    // TODO better understand how this works
+    console.log(this.props.store.isLoading);
     return (
       <Router>
         <div>

@@ -3,6 +3,7 @@ import constants from './constants'
 
 var Request = {
   get: function(resource) {
+    console.log('get', resource);
     return superagent
             .get(this.endpoint(resource))
             .set('Authorization', this.authToken())
@@ -10,6 +11,7 @@ var Request = {
             .then(data => { return data.body })
   },
   post: function(resource, data) {
+    console.log('post', resource, data);
     return superagent
             .post(this.endpoint(resource))
             .send(data)

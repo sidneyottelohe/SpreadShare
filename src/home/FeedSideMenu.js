@@ -4,17 +4,17 @@ import { observer } from 'mobx-react'
 @observer
 class FeedSideMenu extends Component {
   filter(f) {
-    this.props.store.filter = f
+    this.props.viewStore.filter = f
   }
   sort(property) {
-    var direction = this.props.store.sort.direction === 'asc' ? 'desc' : 'asc'
-    this.props.store.sort = { property: property, direction: direction }
+    var direction = this.props.viewStore.sort.direction === 'asc' ? 'desc' : 'asc'
+    this.props.viewStore.sort = { property: property, direction: direction }
   }
   isFilter(filter) {
-    return this.props.store.filter === filter ? 'feed__filter__toggle--active ' : ''
+    return this.props.viewStore.filter === filter ? 'feed__filter__toggle--active ' : ''
   }
   isSort(sort) {
-    return this.props.store.sort.property === sort ? 'feed__filter__toggle--active ' : ''
+    return this.props.viewStore.sort.property === sort ? 'feed__filter__toggle--active ' : ''
   }
   render() {
     return (

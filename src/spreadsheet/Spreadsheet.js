@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
 
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Discussion from './Discussion'
 
-@observer
 class Spreadsheet extends Component {
   render() {
-    if (Number(this.props.match.params.name) !== this.props.store.sheet.id) {
-      this.props.store.changeSheet(this.props.match.params.name)
+    var currentSheetId = Number(this.props.match.params.name)
+    if (currentSheetId !== this.props.viewStore.sheet) {
+      this.props.viewStore.sheet = currentSheetId
     }
     return (
       <div>
@@ -25,7 +24,7 @@ class Spreadsheet extends Component {
           </section>
         </main>
       </div>
-    );
+    )
   }
 }
 
