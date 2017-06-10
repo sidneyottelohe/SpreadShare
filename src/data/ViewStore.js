@@ -7,6 +7,10 @@ class ViewStore {
   @observable myAccountOpen = false
   @observable sheet = 2
 
+  @observable notify = {
+    message: 'hello world'
+  }
+
   @observable currentUser = {
     name: '',
     email: ''
@@ -43,6 +47,10 @@ class ViewStore {
     new Notification({body: 'This is a notification', link: 'http://google.com', created_at: '1 day ago'}),
     new Notification({body: 'This is another notification', link: 'http://google.com', created_at: '2 days ago'})
   ]
+
+  updateErrorMessage(error) {
+    this.notify.message = JSON.parse(error.response.text).message
+  }
 
   filteredSheets(sheets) {
     // sort the sheets

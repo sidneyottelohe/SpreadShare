@@ -31,6 +31,7 @@ class Sheet {
   create() {
     this.store.apiLayer.createSheet(this.store.viewStore.submitSheetInputs)
       .then(json => this.store.updateSheetFromServer(json))
+      .catch(error => this.store.viewStore.updateErrorMessage(error))
   }
 
   upvote() {

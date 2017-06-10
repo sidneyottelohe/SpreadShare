@@ -16,6 +16,8 @@ import Subscribe from './Subscribe';
 import Submit from './Submit';
 import Spreadsheet from './Spreadsheet';
 
+import Notify from './utilities/notify';
+
 // import Footer from './footer/Footer';
 // import Header from './header/Header';
 // import Home from './home/Home';
@@ -40,6 +42,7 @@ class App extends Component {
       <div>
           <Router>
             <div>
+              <Notify {...this.props}/>
               <Header />
               <Route exact path='/' render={(props) => (
                 <Home {...this.props} {...props} />

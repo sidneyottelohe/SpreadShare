@@ -9,6 +9,7 @@ var Request = {
             .set('Authorization', this.authToken())
             .set('Accept', this.apiVersion1())
             .then(data => { return data.body })
+            // .catch(data => { return data })
   },
   post: function(resource, data) {
     console.log('post', resource, data);
@@ -18,6 +19,7 @@ var Request = {
             .set('Authorization', this.authToken())
             .set('Accept', this.apiVersion1())
             .then(data => { return data.body })
+            // .catch(data => { return data })
   },
   endpoint: function(resource) {
     return constants.apiPrefix + resource

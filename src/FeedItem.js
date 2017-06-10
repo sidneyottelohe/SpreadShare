@@ -4,6 +4,9 @@ import { observer } from 'mobx-react';
 
 @observer
 class FeedItem extends Component {
+  upvote() {
+    this.props.sheet.upvote()
+  }
   render() {
     const sheet = this.props.sheet
     console.log(sheet);
@@ -13,7 +16,7 @@ class FeedItem extends Component {
           <div className="featured-tag">staff pick 👏</div>
           <div className="card__header">
             <div className="card__header__flex-wrapper">
-              <div className="vote-btn">
+              <div className="vote-btn" onClick={this.upvote.bind(this)}>
                 <div className="vote-btn__count">{sheet.upvotes_count}</div>
               </div>
               <Link to={`/spreadsheet/${sheet.id}`}>

@@ -25,7 +25,6 @@ class ApiLayer {
     return request.post(`spreadsheets/${id}/upvote`)
   }
   createSheet(data) {
-    console.log(data);
     return request.post('spreadsheets', data)
   }
   destroySheet(id) {

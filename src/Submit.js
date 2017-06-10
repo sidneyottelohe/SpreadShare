@@ -9,9 +9,7 @@ class Submit extends Component {
     this.updateInput = this.updateInput.bind(this)
   }
   submit() {
-    console.log('this actually works');
-    var sheet = this.props.store.createSheet();
-    this.props.history.push(`/spreadsheet/${sheet.id}`)
+    this.props.store.createSheet();
   }
   updateInput(e) {
     this.props.viewStore.submitSheetInputs[e.target.name] = e.target.value
