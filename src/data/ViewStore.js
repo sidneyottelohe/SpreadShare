@@ -20,7 +20,12 @@ class ViewStore {
   @observable submitSheetInputs = {
     title: '',
     description: '',
-    url: ''
+    url: '',
+    category: '',
+    tags: '',
+    creator: '',
+    submitter: '',
+    email: ''
   }
 
   @observable signUpInputs = {
@@ -45,7 +50,7 @@ class ViewStore {
 
     // filter the sheets
     var sheetsFilter = new RegExp(this.filter, 'i')
-    var filteredSheets = sortedSheets.filter(sheet => !this.filter || sheetsFilter.test(sheet.tag))
+    var filteredSheets = sortedSheets.filter(sheet => !this.filter || sheetsFilter.test(sheet.category))
 
     // search the sheets
     var sheetsSearch = new RegExp(this.search, 'i')

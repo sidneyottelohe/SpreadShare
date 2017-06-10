@@ -9,6 +9,9 @@ class Sheet {
   category = null
   format = null
   user = null
+  creators = []
+  contributors = []
+  related_spreadsheets = []
 
   @observable comments = [];
   @observable tag_names = [];
@@ -61,6 +64,9 @@ class Sheet {
     this.category = json.category
     this.format = json.format
     this.user = json.user
+    this.contributors = json.contributors
+    this.creators = json.creators
+    this.related_spreadsheets = json.related_spreadsheets
   }
 
 }

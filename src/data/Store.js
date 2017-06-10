@@ -16,7 +16,7 @@ class Store {
   constructor() {
     this.apiLayer = apiLayer
     this.viewStore = viewStore
-    this.loadUser()
+    // this.loadUser()
     this.loadSheets()
   }
 
